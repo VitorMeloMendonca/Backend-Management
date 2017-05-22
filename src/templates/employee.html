@@ -1,0 +1,49 @@
+<form id="formEmployee" class="form">
+    <div class="title">
+        <h2>{{Title}}</h2>
+    </div>
+    <div id="formGroup">
+        <div class="form-group">
+            <div class="col-lg-4">
+                <label for="role">First Name</label>
+                <input type="text" class="form-control" id="role" aria-describedby="emailHelp" placeholder="Enter first name" ng-model="Employee.FirstName">
+            </div>
+            <div class="col-lg-4">
+                <label for="role">Last Name</label>
+                <input type="text" class="form-control" id="role" aria-describedby="emailHelp" placeholder="Enter last name" ng-model="Employee.LastName">
+            </div>
+            <div class="col-lg-4">
+                <label for="Employee">Phone</label>
+                <input type="text" class="form-control" id="Employee" aria-describedby="emailHelp" placeholder="Enter phone" ng-model="Employee.Phone">
+            </div>
+            <div class="col-lg-4">
+                <label for="Employee">Email</label>
+                <input type="text" class="form-control" id="Employee" aria-describedby="emailHelp" placeholder="Enter email" ng-model="Employee.Email">
+            </div>
+            <div class="col-lg-4">
+                <label for="Employee">Address</label>
+                <input type="text" class="form-control" id="Employee" aria-describedby="emailHelp" placeholder="Enter address" ng-model="Employee.Address">
+            </div>
+            <div class="col-lg-4">
+                <label for="Employee">Post Code</label>
+                <input type="text" class="form-control" id="Employee" aria-describedby="emailHelp" placeholder="Enter post code" ng-model="Employee.PostCode">
+            </div>
+            <div class="col-lg-4">
+                <label for="exampleSelect1">Country</label>
+                <select class="form-control" ng-model="Employee.Country" ng-change="ChangedValue(Employee.Country)" data-ng-options="item as item.Name for item in CountryList">
+                    <option value="">Select Country</option>
+                </select> 
+            </div>
+            <div class="col-lg-4">
+                <label for="exampleSelect1">I prefer to be contacted via</label>
+                <select class="form-control" ng-model="Employee.ContactPreference" ng-change="ChangedValue(Employee.ContactPreference)" data-ng-options="item as item.Name for item in ContactPreferencesList">
+                    <option value="">Select contact of your preference</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary" ng-click="SaveEmployee()">Save</button>
+        <button type="button" class="btn btn-info" ng-click="CleanEmployee()">Clean</button>
+    </div>
+</form>

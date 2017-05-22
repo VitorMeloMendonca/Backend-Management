@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="Management">
+<head>
+    <title>Management</title>
+    <meta charset="UTF-8">
+    <!-- styles -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/node_modules/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="/node_modules/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="/style/site.css">
+
+    <!-- scrips -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-route/angular-route.min.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/node_modules/ng-dialog/js/ngDialog.min.js"></script>
+
+    <!-- CONFIG -->
+    <script src="/js/config.js"></script>
+
+    <!-- Controller -->
+    <script src="/js/controllers/NavController.js"></script>
+    <script src="/js/controllers/HomeController.js"></script>
+    <script src="/js/controllers/EmployerController.js"></script>
+    <script src="/js/controllers/EmployeeController.js"></script>
+    <script src="/js/controllers/TechnologyController.js"></script>
+    <script src="/js/controllers/OpportunityController.js"></script>
+    <script src="/js/controllers/RoleController.js"></script>
+    <script src="/js/controllers/CountryController.js"></script>
+    <script src="/js/controllers/ContactPreferenceController.js"></script>
+
+    <!-- services -->
+    <script src="/js/service/ParameterService.js"></script>
+    <script src="/js/service/AlertService.js"></script>
+
+    <!-- factory -->
+    <script src="/js/factory/HttpInterceptorConfig.js"></script>
+    <script src="/js/factory/ModelFactory.js"></script>
+    <script src="/js/factory/RoleFactory.js"></script>
+    <script src="/js/factory/EmployeeFactory.js"></script>
+    <script src="/js/factory/CountryFactory.js"></script>
+    <script src="/js/factory/ContactPreferenceFactory.js"></script>
+
+    <!-- directive -->
+    <script src="/js/directive/ModalDirective.js"></script>
+    <script src="/js/directive/AlertDirective.js"></script>
+
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>Management<small> Small Business</small></h1>
+    </div>
+    <div>
+        <ul class="nav nav-tabs" ng-controller="NavController">
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'home'}"><a ng-click="changeTab('/')">Home</a></li>
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'employee'}"><a ng-click="changeTab('/Employee')">Empoloyee</a></li>
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'employer'}"><a ng-click="changeTab('/Employer')">Employer</a></li>
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'technology'}"><a ng-click="changeTab('/Technology')">Technology</a></li>
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'opportunity'}"><a ng-click="changeTab('/Opportunity')">Opportunity</a></li>
+            <li role="presentation" ng-class="{active: $route.current.activetab == 'role'}"><a ng-click="changeTab('/Role')">Role</a></li>
+        </ul>
+    </div>
+    <div>
+        <alert></alert>
+    </div>
+    <div>
+        <ng-view></ng-view>
+    </div>
+</body>
+
+</html>

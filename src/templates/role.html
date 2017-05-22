@@ -1,0 +1,43 @@
+<form name="formRole" class="form">
+    <div>
+        <modal-directive></modal-directive>
+    </div>
+    <div class="title">
+        <h2>{{Title}} - {{formRole.$pristine}} - {{formRole.role.$touched}} - {{Role.RoleID}}</h2>
+    </div>
+    <div id="formGroup">
+        <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" class="form-control" name="role" aria-describedby="emailHelp" placeholder="Enter role" ng-model="Role.Name" required>
+            <small id="emailHelp" class="form-text text-muted">Information about the roles.</small>
+        </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary" ng-click="SaveRole()" ng-if="formRole.$valid">Save</button>
+        <button type="button" class="btn btn-primary" ng-click="SaveAllRole()">Save All</button>
+    </div>
+    <div class="grid">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Role</th>
+                    <th>Check</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="r in ListRoles | orderBy: 'Name'">
+                    <th scope="row">{{r.RoleID}}</th>
+                    <td>{{r.Name}}</td>
+                    <td><input type="checkbox" name="Active" ng-model="r.Active" ng-checked="r.Active == 1">{{r.Active}}</input>
+                    </td>
+                    <td>
+                        <a ng-click="EditRole(r, $index)" class="buttonGlyphicon"><span class="glyphicon glyphicon glyphicon-pencil"></span></a>
+                        <a class="buttonGlyphicon" ng-click="clickToOpen()"><span class="glyphicon glyphicon glyphicon-remove"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
